@@ -65,6 +65,47 @@ $router->map(
     'user-delete'
 );
 
+//*** Task ***/
+$router->map(
+    'GET',
+    '/tasks',
+    [
+        'method' => 'list',
+        'controller' => '\App\Controllers\TaskController'
+    ],
+    'task-list'
+);
+
+$router->map(
+    'GET',
+    '/tasks/[i:id]',
+    [
+        'method' => 'item',
+        'controller' => '\App\Controllers\TaskController'
+    ],
+    'task-item'
+);
+
+$router->map(
+    'POST',
+    '/tasks',
+    [
+        'method' => 'add',
+        'controller' => '\App\Controllers\TaskController'
+    ],
+    'task-add'
+);
+
+$router->map(
+    'DELETE',
+    '/tasks/[i:id]',
+    [
+        'method' => 'delete',
+        'controller' => '\App\Controllers\TaskController'
+    ],
+    'task-delete'
+);
+
 
 /* -------------
 --- DISPATCH ---
