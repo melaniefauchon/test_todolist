@@ -13,6 +13,7 @@ if (array_key_exists('BASE_URI', $_SERVER)) {
     $_SERVER['BASE_URI'] = '/';
 }
 
+//*** Home ***/
 $router->map(
     'GET',
     '/',
@@ -21,6 +22,47 @@ $router->map(
         'controller' => '\App\Controllers\MainController'
     ],
     'main-home'
+);
+
+//*** User ***/
+$router->map(
+    'GET',
+    '/users',
+    [
+        'method' => 'list',
+        'controller' => '\App\Controllers\UserController'
+    ],
+    'user-list'
+);
+
+$router->map(
+    'GET',
+    '/users/[i:id]',
+    [
+        'method' => 'item',
+        'controller' => '\App\Controllers\UserController'
+    ],
+    'user-item'
+);
+
+$router->map(
+    'POST',
+    '/users',
+    [
+        'method' => 'add',
+        'controller' => '\App\Controllers\UserController'
+    ],
+    'user-add'
+);
+
+$router->map(
+    'DELETE',
+    '/users/[i:id]',
+    [
+        'method' => 'delete',
+        'controller' => '\App\Controllers\UserController'
+    ],
+    'user-delete'
 );
 
 
