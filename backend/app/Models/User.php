@@ -55,7 +55,8 @@ class User extends CoreModel
     public static function findAll()
     {
         $pdo = Database::getPDO();
-        $sql = 'SELECT * FROM `user`';
+        $sql = 'SELECT * FROM `user`
+                LEFT JOIN `task` on `user`.`id`=`task`.`user_id`';
         $pdoStatement = $pdo->query($sql);
         $results = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
 
@@ -69,7 +70,9 @@ class User extends CoreModel
     public static function find($userId)
     {
         $pdo = Database::getPDO();
-        $sql = 'SELECT * FROM `user`WHERE `id`=' . $userId;
+        $sql = 'SELECT * FROM `user`
+                LEFT JOIN `task` on `user`.`id`=`task`.`user_id`
+                WHERE `user`.`id` =' . $userId;
         $pdoStatement = $pdo->query($sql);
         $result = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
 
