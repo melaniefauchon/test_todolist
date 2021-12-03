@@ -13,6 +13,8 @@ class UserController extends CoreController
     public function list()
     {
         $users = User::findAll();
+        header("Access-Control-Allow-Origin: http://localhost");
+        header("Content-Type: application/json");
         http_response_code(200);
         echo json_encode($users);
     }
