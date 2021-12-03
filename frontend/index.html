@@ -29,75 +29,83 @@
         <div class="container border">
             <div class="row">
                 <div class="input-group mb-3 mt-3">
-                    <select class="select col-5">
+                    <select class="select col-5" id="select__user">
                         <option selected>Choose ...</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
                     </select>
                     <div class="col-3"></div>
-                    <button class="btn btn-success col-4">Ajouter un Utilisateur</button>
+                    <button class="btn btn-success col-4" id="add__user">Ajouter un Utilisateur</button>
                 </div>
             </div>
         </div>
         <div class="container mt-3">
-            <h4>TodoList de <span>'Utilisateur'</span> 
-                <a href="#" class="btn btn-danger btn-sm ms-3">Supprimer <span>'Utilisateur'</span></a>
+            <h4>TodoList de <span class="user__connected">'Utilisateur'</span>
+                <a href="#" class="btn btn-danger btn-sm ms-3">Supprimer<span
+                        class="user__connected--delete"> 'Utilisateur'</span></a>
             </h4>
         </div>
-        <div class="container border mt-3">
-            <div class="row">
-                <div class="col-8 pt-2">
-                    <h3>Titre</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro recusandae dolor eius voluptatum
-                        nobis, repellat natus debitis, placeat culpa, quas fuga? Veritatis, odit labore!</p>
+        <div class="tasks">
+            <div class="container border mt-3 task">
+                <div class="row">
+                    <div class="col-8 pt-2">
+                        <h3 class="task__title">Titre</h3>
+                        <p class="task__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
+                            recusandae dolor eius
+                            voluptatum
+                            nobis, repellat natus debitis, placeat culpa, quas fuga? Veritatis, odit labore!</p>
+                    </div>
+                    <div class="col-2 pt-2">
+                        <p class="task__creation">Crée le : <span class="task__creation-date">date</span></p>
+                        <p class="task__status">Statut : <span class="task__status-status">status</span></p>
+                    </div>
+                    <div class="col-2 pt-2 text-end">
+                        <button class="btn btn-danger task__delete">Supprimer</button>
+                    </div>
                 </div>
-                <div class="col-2 pt-2">
-                    <p>Crée le : <span>date</span></p>
-                    <p>Statut : <span>status</span></p>
-                </div>
-                <div class="col-2 pt-2 text-end">
-                    <button class="btn btn-danger">Supprimer</button>
+            </div>
+
+            <div class="container border mt-3 task">
+                <div class="row">
+                    <div class="col-8 pt-2">
+                        <h3 class="task__title">Titre</h3>
+                        <p class="task__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
+                            recusandae dolor eius
+                            voluptatum
+                            nobis, repellat natus debitis, placeat culpa, quas fuga? Veritatis, odit labore!</p>
+                    </div>
+                    <div class="col-2 pt-2">
+                        <p class="task__creation">Crée le : <span class="task__creation-date">date</span></p>
+                        <p class="task__status">Statut : <span class="task__status-status">status</span></p>
+                    </div>
+                    <div class="col-2 pt-2 text-end">
+                        <button class="btn btn-danger task__delete">Supprimer</button>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="container border mt-3">
+        <div class="container border mt-3 task">
             <div class="row">
                 <div class="col-8 pt-2">
-                    <h3>Titre</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro recusandae dolor eius voluptatum
+                    <h3 class="task__title">Titre</h3>
+                    <p class="task__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
+                        recusandae dolor eius
+                        voluptatum
                         nobis, repellat natus debitis, placeat culpa, quas fuga? Veritatis, odit labore!</p>
                 </div>
                 <div class="col-2 pt-2">
-                    <p>Crée le : <span>date</span></p>
-                    <p>Statut : <span>status</span></p>
+                    <p class="task__creation">Crée le : <span class="task__creation-date">date</span></p>
+                    <p class="task__status">Statut : <span class="task__status-status">status</span></p>
                 </div>
                 <div class="col-2 pt-2 text-end">
-                    <button class="btn btn-danger">Supprimer</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="container border mt-3">
-            <div class="row">
-                <div class="col-8 pt-2">
-                    <h3>Titre</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro recusandae dolor eius voluptatum
-                        nobis, repellat natus debitis, placeat culpa, quas fuga? Veritatis, odit labore!</p>
-                </div>
-                <div class="col-2 pt-2">
-                    <p>Crée le : <span>date</span></p>
-                    <p>Statut : <span>status</span></p>
-                </div>
-                <div class="col-2 pt-2 text-end">
-                    <button class="btn btn-danger">Supprimer</button>
+                    <button class="btn btn-danger task__delete">Supprimer</button>
                 </div>
             </div>
         </div>
 
         <div class="container text-center mt-3">
-            <button class="btn btn-success col-5">Ajouter une tâche</button>
+            <button class="btn btn-success col-5" id="add__task">Ajouter une tâche</button>
         </div>
     </main>
 
