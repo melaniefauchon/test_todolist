@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Task;
 use App\Models\User;
 
 class UserController extends CoreController
@@ -62,5 +63,22 @@ class UserController extends CoreController
             http_response_code(404);
             echo json_encode("Utilisateur non trouvé, veuillez saisir un id correct");
         }
+    }
+
+    /**
+     * Allows the addition of a task by a user according to his id
+     */
+    public function addTask($userId)
+    {
+        $newTaskByUser= json_decode(file_get_contents("php://input"), true);
+
+        $task = new Task($userId);
+        $task->setUserId($userId);
+        $task->setTitle(ucfirst($newTaskByUser['title']));
+        $task->setDescription(ucfirst($newTaskByUser['description']));
+
+        $task->insert();
+        http_response_code(201);
+        echo json_encode("Nouvelle tâche : '" . $task->getTitle() . "' crée.");
     }
 }

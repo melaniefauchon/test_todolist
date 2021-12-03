@@ -65,6 +65,17 @@ $router->map(
     'user-delete'
 );
 
+$router->map(
+    'POST',
+    '/users/[i:id]',
+    [
+        'method' => 'addTask',
+        'controller' => '\App\Controllers\UserController'
+    ],
+    'user-addTask'
+);
+
+
 //*** Task ***/
 $router->map(
     'GET',
