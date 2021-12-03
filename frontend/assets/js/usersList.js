@@ -1,6 +1,15 @@
 const usersList = {
     init: function () {
+        /***************************
+         * User display management
+         ***************************/
         usersList.loadUsersFromAPI();
+
+        /*******************************
+         * Managing the add user button
+         *******************************/
+        const buttonAddUser = document.querySelector('#add__user');
+        buttonAddUser.addEventListener('submit', usersList.handleNewUserCreate);
     },
     loadUsersFromAPI: function () {
         const httpHeaders = new Headers();
@@ -24,11 +33,48 @@ const usersList = {
                     selectElement.appendChild(newOptionElement);
                 }
 
-            const defaultOption = document.createElement('option');
-            defaultOption.textContent = "Selectionnez un utilisateur";
-            defaultOption.value = 0;
-            defaultOption.setAttribute('selected', '');
-            selectElement.appendChild(defaultOption);
+                const defaultOption = document.createElement('option');
+                defaultOption.textContent = "Selectionnez un utilisateur";
+                defaultOption.value = 0;
+                defaultOption.setAttribute('selected', '');
+                selectElement.appendChild(defaultOption);
             })
+    },
+    handleNewUserCreate: function (event) {
+
+        const inputUsername=document.querySelector('#username');
+        const inputEmail = document.querySelector('#email');
+
+        const newUsername = inputUsername.value;
+        const newEmail = inputEmail.value;
+
+        const data = {
+            name: newUsername,
+            email: newEmail
+        };
+
+        const config = {
+            method:'POST',
+            mode:'cors',
+            cache:'no-cache',
+            body: JSON.stringify(data)
+        };
+
+        fetch(app.apiRootUrl + '/users', config)
+            .then(function(response) {
+                if(response.status ===201){
+                    return response.json();
+                } else {
+                    throw "L'ajout a échoué, veuillez retenter plus tard";
+                }
+            })
+            .then(function(responseJson){
+                if(responseJson.message !== undefined){
+                    alert(responseJson.message);
+                    return;
+                }
+                event.preventDefault();
+            })
+
     }
 }
