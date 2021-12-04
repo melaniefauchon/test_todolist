@@ -10,6 +10,12 @@ const usersList = {
          *******************************/
         const buttonAddUser = document.querySelector('#add__user');
         buttonAddUser.addEventListener('submit', usersList.handleNewUserCreate);
+
+        /*******************************
+         * Managing the select user 
+         *******************************/
+        const selectUser = document.querySelector('#select__user');
+        selectUser.addEventListener('change', usersList.handleDisplayUsername);
     },
     loadUsersFromAPI: function () {
         const httpHeaders = new Headers();
@@ -75,6 +81,22 @@ const usersList = {
                 }
                 event.preventDefault();
             })
+    },
+    handleDisplayUsername: function(event){
+        const displayUsername = document.querySelector('.user__connected');
+        const usernameId = event.target.value;
 
+        const config = {
+            method: 'GET',
+            mode: 'cors',
+            cache: 'no-cache',
+        };
+        fetch(app.apiRootUrl + '/users/' + usernameId, config)
+            .then(function (response){
+                return response.json();
+            })
+            .then(function (userFromAPI){
+                displayUsername.textContent =userFromAPI[0].name;
+            })
     }
 }
