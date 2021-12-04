@@ -25,6 +25,9 @@ class UserController extends CoreController
     public function item($userId)
     {
         $user = User::find($userId);
+        header("Access-Control-Allow-Origin: http://localhost");
+        header("Content-Type: application/json");
+
         if ($user) {
             http_response_code(200);
             echo json_encode($user);
