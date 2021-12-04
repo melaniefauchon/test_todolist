@@ -46,6 +46,9 @@ class UserController extends CoreController
         $user->setEmail($newUser['email']);
 
         $user->insert();
+        header("Access-Control-Allow-Origin: http://localhost");
+        header("Content-Type: application/json");
+
         http_response_code(201);
         echo json_encode("Utilisateur : " . $user->getName() . " ajouté.");
     }

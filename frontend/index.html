@@ -32,14 +32,49 @@
                     <select class="select col-5" id="select__user">
                     </select>
                     <div class="col-3"></div>
-                    <button class="btn btn-success col-4" id="add__user">Ajouter un Utilisateur</button>
+                    <!-- <button class="btn btn-success col-4" id="add__user">Ajouter un Utilisateur</button> -->
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-success col-4" data-bs-toggle="modal" data-bs-target="#addUserModal">
+                       Ajouter un Utilisateur
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="addUserModalLabel">Ajouter un Utilisateur</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="add__user">
+                                        <div class="mb-3">
+                                          <label for="username" class="form-label">Nom de l'Utilisateur</label>
+                                          <input type="text" class="form-control" id="username" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="email" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="email" required>
+                                          </div>
+                                        <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Ajouter</button>
+                                      </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
         <div class="container mt-3">
             <h4>TodoList de <span class="user__connected">'Utilisateur'</span>
-                <a href="#" class="btn btn-danger btn-sm ms-3">Supprimer<span
-                        class="user__connected--delete"> 'Utilisateur'</span></a>
+                <a href="#" class="btn btn-danger btn-sm ms-3">Supprimer<span class="user__connected--delete">
+                        'Utilisateur'</span></a>
             </h4>
         </div>
         <div class="tasks">
