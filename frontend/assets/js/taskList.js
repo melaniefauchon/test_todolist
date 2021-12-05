@@ -1,5 +1,6 @@
 const taskList = {
     init:function(){
+
         /*********************************
          * Managing the add task button 
          *********************************/
@@ -10,6 +11,7 @@ const taskList = {
         for (const taskElement of allTaskElement){
             taskElement.init(taskElement);
         }
+
     },
     handleNewTaskCreate:function(event){
         const inputTitle = document.querySelector('#title');
@@ -48,6 +50,5 @@ const taskList = {
             }
             event.preventDefault();
         })
-
     }
 }

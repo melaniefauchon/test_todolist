@@ -4,6 +4,7 @@ const app = {
     init: function(){
         console.log("Welcome !");
         usersList.init();
+        taskList.init();
     }
 }
 
