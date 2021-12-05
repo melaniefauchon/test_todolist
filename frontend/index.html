@@ -85,7 +85,41 @@
         </div>
 
         <div class="container text-center mt-3">
-            <button class="btn btn-success col-5" id="add__task">Ajouter une tâche</button>
+            <!-- <button class="btn btn-success col-5" id="add__task">Ajouter une tâche</button> -->
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-success col-4" data-bs-toggle="modal" data-bs-target="#addTaskModal">
+                Ajouter une Tâche
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="addTaskModal" tabindex="-1" aria-labelledby="addTaskModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addTaskModalLabel">Ajouter un Utilisateur</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="add__task">
+                                <div class="mb-3">
+                                    <label for="title" class="form-label">Nom de la tâche</label>
+                                    <input type="text" class="form-control" id="title" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="description" class="form-label">Description</label>
+                                    <input type="text" class="form-control" id="description" required>
+                                </div>
+                                <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Ajouter</button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <template id="task-template">
@@ -96,7 +130,8 @@
                         <p class="task__description">Description de la tâche</p>
                     </div>
                     <div class="col-2 pt-2">
-                        <p class="task__creation">Date de création de la tâche : <span class="task__creation-date">date</span></p>
+                        <p class="task__creation">Date de création de la tâche : <span
+                                class="task__creation-date">date</span></p>
                         <p class="task__status">Statut de la tâche: <span class="task__status-status">status</span></p>
                     </div>
                     <div class="col-2 pt-2 text-end">

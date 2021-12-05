@@ -44,6 +44,9 @@ class TaskController extends CoreController
         $task->setDescription($newTask['description']);
 
         $task->insert();
+        header("Access-Control-Allow-Origin: http://localhost");
+        header("Content-Type: application/json");
+
         http_response_code(201);
         echo json_encode("Tâche : '" . $task->getTitle() . "' ajoutée.");
     }
