@@ -65,9 +65,15 @@ class UserController extends CoreController
 
         if ($userToDelete) {
             User::delete($userId);
+            header("Access-Control-Allow-Origin: http://localhost");
+            header("Content-Type: application/json");
+    
             http_response_code(200);
             echo json_encode("Utilisateur supprimé");
         } else {
+            header("Access-Control-Allow-Origin: http://localhost");
+            header("Content-Type: application/json");
+    
             http_response_code(404);
             echo json_encode("Utilisateur non trouvé, veuillez saisir un id correct");
         }
