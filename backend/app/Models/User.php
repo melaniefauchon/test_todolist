@@ -69,7 +69,7 @@ class User extends CoreModel
     public static function find($userId)
     {
         $pdo = Database::getPDO();
-        $sql = 'SELECT `user`.`id`,`name`, `email`, `title`, `description`, `creation_date`, `status` FROM `user`
+        $sql = 'SELECT `user`.`id`,`name`, `email`, `task`.`id` as `task_id`, `title`, `description`, `creation_date`, `status` FROM `user`
                 LEFT JOIN `task` on `user`.`id`=`task`.`user_id`
                 WHERE `user`.`id` =' . $userId;
         $pdoStatement = $pdo->query($sql);

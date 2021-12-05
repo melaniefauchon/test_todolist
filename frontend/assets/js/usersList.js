@@ -122,8 +122,10 @@ const usersList = {
                         status.textContent = user.status;
 
                         const divTask = documentFragment.querySelector('.task');
+                        divTask.dataset.id = user.task_id;
                         const tasks = document.querySelector('.tasks')
                         tasks.appendChild(divTask);
+                        task.init(divTask);
                     }
                 }
             })
