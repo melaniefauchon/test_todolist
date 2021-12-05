@@ -57,6 +57,9 @@ class TaskController extends CoreController
 
         if ($taskToDelete) {
             Task::delete($taskId);
+            header("Access-Control-Allow-Origin: http://localhost");
+            header("Content-Type: application/json");
+    
             http_response_code(200);
             echo json_encode("Tâche supprimée");
         } else {
