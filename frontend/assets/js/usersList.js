@@ -16,6 +16,12 @@ const usersList = {
          *******************************/
         const selectUser = document.querySelector('#select__user');
         selectUser.addEventListener('change', usersList.handleDisplayUserInfos);
+
+        /***********************************
+         * Managing the delete user button
+         ***********************************/
+        const buttonDeleteUser = document.querySelector('#delete__user');
+        buttonDeleteUser.addEventListener('click', usersList.handleDeleteUser);
     },
     loadUsersFromAPI: function () {
         const httpHeaders = new Headers();
@@ -121,5 +127,30 @@ const usersList = {
                     }
                 }
             })
+    },
+    handleDeleteUser: function (event) {
+        const userSelectedId = document.querySelector('#select__user').value;
+        console.log(userSelectedId);
+
+        const httpHeaders = new Headers();
+        httpHeaders.append("Content-Type", "application/json");
+
+        const config = {
+            method: 'DELETE',
+            mode: 'no-cors',
+            // cache: 'no-cache',
+            headers: httpHeaders,
+        };
+
+        fetch(app.apiRootUrl + '/users/' + userSelectedId, config)
+            .then(function (response) {
+                console.log(response)
+                return response.json();
+            })
+            .then(function (responseJson){
+                console.log(responseJson);
+            })
+
+
     }
 }
