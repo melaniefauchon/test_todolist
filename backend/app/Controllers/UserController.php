@@ -45,15 +45,25 @@ class UserController extends CoreController
         $newUser = json_decode(file_get_contents("php://input"), true);
 
         $user = new User();
-        $user->setName($newUser['name']);
-        $user->setEmail($newUser['email']);
 
-        $user->insert();
-        header("Access-Control-Allow-Origin: http://localhost");
-        header("Content-Type: application/json");
+        if (!empty(filter_var($newUser['name'], FILTER_SANITIZE_STRING))) {
+            $user->setName($newUser['name']);
+            if (filter_var($newUser['email'], FILTER_VALIDATE_EMAIL)) {
+                $user->setEmail($newUser['email']);
+            } else {
+                http_response_code(500);
+                echo json_encode("L'adresse mail fournie n'est pas valide, l'ajout a échoué.");
+            }
+            $user->insert();
+            header("Access-Control-Allow-Origin: http://localhost");
+            header("Content-Type: application/json");
 
-        http_response_code(201);
-        echo json_encode("Utilisateur : " . $user->getName() . " ajouté.");
+            http_response_code(201);
+            echo json_encode("Utilisateur : " . $user->getName() . " ajouté.");
+        } else {
+            http_response_code(500);
+            echo json_encode("Le nom d'utilisateur n'a pas été fourni, l'ajout à échoué.");
+        }
     }
 
     /**
@@ -67,13 +77,13 @@ class UserController extends CoreController
             User::delete($userId);
             header("Access-Control-Allow-Origin: http://localhost");
             header("Content-Type: application/json");
-    
+
             http_response_code(200);
             echo json_encode("Utilisateur supprimé");
         } else {
             header("Access-Control-Allow-Origin: http://localhost");
             header("Content-Type: application/json");
-    
+
             http_response_code(404);
             echo json_encode("Utilisateur non trouvé, veuillez saisir un id correct");
         }
@@ -84,15 +94,24 @@ class UserController extends CoreController
      */
     public function addTask($userId)
     {
-        $newTaskByUser= json_decode(file_get_contents("php://input"), true);
+        $newTaskByUser = json_decode(file_get_contents("php://input"), true);
 
         $task = new Task($userId);
         $task->setUserId($userId);
-        $task->setTitle(ucfirst($newTaskByUser['title']));
-        $task->setDescription(ucfirst($newTaskByUser['description']));
-
-        $task->insert();
-        http_response_code(201);
-        echo json_encode("Nouvelle tâche : '" . $task->getTitle() . "' crée.");
+        if (!empty(filter_var($newTaskByUser['title'], FILTER_SANITIZE_STRING))) {
+            $task->setTitle(ucfirst($newTaskByUser['title']));
+            if (!empty(filter_var($newTaskByUser['description'], FILTER_SANITIZE_STRING))) {
+                $task->setDescription(ucfirst($newTaskByUser['description']));
+            } else {
+                http_response_code(500);
+                echo json_encode("Veuillez fournir une description de la tâche.");
+            }
+            $task->insert();
+            http_response_code(201);
+            echo json_encode("Nouvelle tâche : '" . $task->getTitle() . "' crée.");
+        } else {
+            http_response_code(500);
+            echo json_encode("Veuillez fournir un titre à cette tâche.");
+        }
     }
 }
