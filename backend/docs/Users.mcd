@@ -1,0 +1,5 @@
+TASK: user_id, title, description, creation_date, status
+:
+
+HAVE ,01 TASK, 1N USER
+USER : name, email

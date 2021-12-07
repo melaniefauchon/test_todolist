@@ -1,0 +1,31 @@
+<html>
+<head>
+<meta charset='utf-8'>
+<style>
+  #mld .relation { font-variant: small-caps; font-weight: bold }
+  #mld .primary { text-decoration: underline }
+  #mld .foreign { font-style: oblique }
+  #mld .normal { }
+</style>
+</head>
+<body>
+<div id='mld'>
+<div>
+  <span class='relation'>TASK</span> (
+    <span class='primary'>user_id</span>,
+    <span class='normal'>title</span>,
+    <span class='normal'>description</span>,
+    <span class='normal'>creation_date</span>,
+    <span class='normal'>status</span>,
+    <span class='foreign'>name</span>
+  )
+</div>
+<div>
+  <span class='relation'>USER</span> (
+    <span class='primary'>name</span>,
+    <span class='normal'>email</span>
+  )
+</div>
+</div>
+</body>
+</html>
