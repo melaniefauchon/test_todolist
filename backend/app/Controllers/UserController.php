@@ -47,7 +47,8 @@ class UserController extends CoreController
         $user = new User();
 
         // $user->setName($newUser['name']);
-        if (!empty($newUser['name'])) {
+        // if (!empty($newUser['name'])) {
+        if (!empty(filter_var($newUser['name'], FILTER_SANITIZE_STRING))) {
             $user->setName($newUser['name']);
             if (filter_var($newUser['email'], FILTER_VALIDATE_EMAIL)) {
                 $user->setEmail($newUser['email']);
