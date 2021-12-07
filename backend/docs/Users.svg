@@ -1,0 +1,54 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="167" height="229" view_box="0 0 167 229"
+xmlns="http://www.w3.org/2000/svg"
+xmlns:link="http://www.w3.org/1999/xlink">\n\n<desc>Généré par Mocodo 2.3.7 le Tue, 07 Dec 2021 11:43:49</desc>
+
+<rect id="frame" x="0" y="0" width="167" height="229" fill="#ffffbf" stroke="none" stroke-width="0"/>
+
+<!-- Association HAVE -->
+<line x1="56" y1="68" x2="56" y2="186" stroke="#66c2a5" stroke-width="2"/>
+<text x="61.0" y="144" fill="#d53e4f" font-family="Verdana" font-size="12">0,1</text>
+<line x1="135" y1="186" x2="56" y2="186" stroke="#66c2a5" stroke-width="2"/>
+<text x="85" y="203.0" fill="#d53e4f" font-family="Verdana" font-size="12">1,N</text>
+<g id="association-HAVE">
+	<path d="M 66 161 a 14 14 90 0 1 14 14 V 186 h -48 V 175 a 14 14 90 0 1 14 -14" fill="#abdda4" stroke="#abdda4" stroke-width="0"/>
+	<path d="M 80 186.0 v 11 a 14 14 90 0 1 -14 14 H 46 a 14 14 90 0 1 -14 -14 V 186.0 H 48" fill="#e6f598" stroke="#e6f598" stroke-width="0"/>
+	<rect x="32" y="161" width="48" height="50" fill="none" rx="14" stroke="#66c2a5" stroke-width="2"/>
+	<line x1="32" y1="186" x2="80" y2="186" stroke="#66c2a5" stroke-width="1"/>
+	<text x="39" y="178.7" fill="#000000" font-family="Verdana" font-size="12">HAVE</text>
+</g>
+
+<!-- Entity TASK -->
+<g id="entity-TASK">
+	<g id="frame-TASK">
+		<rect x="9" y="9" width="94" height="25" fill="#fdae61" stroke="#fdae61" stroke-width="0"/>
+		<rect x="9" y="34.0" width="94" height="93" fill="#fee08b" stroke="#fee08b" stroke-width="0"/>
+		<rect x="9" y="9" width="94" height="118" fill="none" stroke="#f46d43" stroke-width="2"/>
+		<line x1="9" y1="34" x2="103" y2="34" stroke="#f46d43" stroke-width="1"/>
+	</g>
+	<text x="39" y="26.7" fill="#000000" font-family="Verdana" font-size="12">TASK</text>
+	<text x="14" y="51.7" fill="#000000" font-family="Verdana" font-size="12">user_id</text>
+	<line x1="14" y1="54" x2="60" y2="54" stroke="#000000" stroke-width="1"/>
+	<text x="14" y="68.8" fill="#000000" font-family="Verdana" font-size="12">title</text>
+	<text x="14" y="85.8" fill="#000000" font-family="Verdana" font-size="12">description</text>
+	<text x="14" y="102.8" fill="#000000" font-family="Verdana" font-size="12">creation_date</text>
+	<text x="14" y="119.8" fill="#000000" font-family="Verdana" font-size="12">status</text>
+</g>
+
+<!-- Entity USER -->
+<g id="entity-USER">
+	<g id="frame-USER">
+		<rect x="112" y="152" width="46" height="25" fill="#fdae61" stroke="#fdae61" stroke-width="0"/>
+		<rect x="112" y="177.0" width="46" height="43" fill="#fee08b" stroke="#fee08b" stroke-width="0"/>
+		<rect x="112" y="152" width="46" height="68" fill="none" stroke="#f46d43" stroke-width="2"/>
+		<line x1="112" y1="177" x2="158" y2="177" stroke="#f46d43" stroke-width="1"/>
+	</g>
+	<text x="118" y="169.7" fill="#000000" font-family="Verdana" font-size="12">USER</text>
+	<text x="117" y="194.8" fill="#000000" font-family="Verdana" font-size="12">name</text>
+	<line x1="117" y1="197" x2="152" y2="197" stroke="#000000" stroke-width="1"/>
+	<text x="117" y="211.8" fill="#000000" font-family="Verdana" font-size="12">email</text>
+</g>
+</svg>
