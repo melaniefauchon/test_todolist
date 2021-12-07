@@ -46,8 +46,6 @@ class UserController extends CoreController
 
         $user = new User();
 
-        // $user->setName($newUser['name']);
-        // if (!empty($newUser['name'])) {
         if (!empty(filter_var($newUser['name'], FILTER_SANITIZE_STRING))) {
             $user->setName($newUser['name']);
             if (filter_var($newUser['email'], FILTER_VALIDATE_EMAIL)) {
@@ -100,11 +98,20 @@ class UserController extends CoreController
 
         $task = new Task($userId);
         $task->setUserId($userId);
-        $task->setTitle(ucfirst($newTaskByUser['title']));
-        $task->setDescription(ucfirst($newTaskByUser['description']));
-
-        $task->insert();
-        http_response_code(201);
-        echo json_encode("Nouvelle tâche : '" . $task->getTitle() . "' crée.");
+        if (!empty(filter_var($newTaskByUser['title'], FILTER_SANITIZE_STRING))) {
+            $task->setTitle(ucfirst($newTaskByUser['title']));
+            if (!empty(filter_var($newTaskByUser['description'], FILTER_SANITIZE_STRING))) {
+                $task->setDescription(ucfirst($newTaskByUser['description']));
+            } else {
+                http_response_code(500);
+                echo json_encode("Veuillez fournir une description de la tâche.");
+            }
+            $task->insert();
+            http_response_code(201);
+            echo json_encode("Nouvelle tâche : '" . $task->getTitle() . "' crée.");
+        } else {
+            http_response_code(500);
+            echo json_encode("Veuillez fournir un titre à cette tâche.");
+        }
     }
 }
